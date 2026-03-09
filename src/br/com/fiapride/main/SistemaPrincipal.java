@@ -24,17 +24,25 @@ public class SistemaPrincipal {
         System.out.println("Passageiro: " + passageiro1.nome + " | Saldo: R$" + passageiro1.saldo);
         System.out.println("Passageiro: " + passageiro2.nome + " | Saldo: R$" + passageiro2.saldo);
 
-        Suculenta echeveria = new Suculenta();
-        echeveria.especie = "Echeveria";
-        echeveria.nivelAgua = 3;
-        echeveria.solConstante = true;
+        Suculenta echeveria = new Suculenta("Echeveria", 3, true);
+        Suculenta aloeVera = new Suculenta("Aloe Vera", 1, false);
 
-        Suculenta aloeVera = new Suculenta();
-        aloeVera.especie = "Aloe Vera";
-        aloeVera.nivelAgua = 1;
-        aloeVera.solConstante = false;
+        System.out.println("\n--- Testando métodos das suculentas ---");
 
-        System.out.println("Suculenta 1: " + echeveria.especie + "; nível de água: " + echeveria.nivelAgua + "; Precisa de muito sol? " + echeveria.solConstante);
-        System.out.println("Suculenta 1: " + aloeVera.especie + "; nível de água: " + aloeVera.nivelAgua + "; Precisa de muito sol? " + aloeVera.solConstante);
+        // Teste válido: precisa de água
+        echeveria.regar();
+
+        // Teste inválido: não precisa de água ainda
+        aloeVera.regar();
+
+        // Teste de sol
+        echeveria.tomarSol();
+
+        // Teste de sol em planta que não precisa
+        aloeVera.tomarSol();
+
+        System.out.println("\n--- Estado final das plantas ---");
+        System.out.println(echeveria.getEspecie() + " | nível de água: " + echeveria.getNivelAgua());
+        System.out.println(aloeVera.getEspecie() + " | nível de água: " + aloeVera.getNivelAgua());
     }
 }
