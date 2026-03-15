@@ -29,17 +29,19 @@ public class SistemaPrincipal {
 
         System.out.println("\n--- Testando métodos das suculentas ---");
 
-        // Teste válido: precisa de água
         echeveria.regar();
 
-        // Teste inválido: não precisa de água ainda
         aloeVera.regar();
 
-        // Teste de sol
         echeveria.tomarSol();
 
-        // Teste de sol em planta que não precisa
         aloeVera.tomarSol();
+
+        System.out.println("\n--- Testando proteção do setter ---");
+
+        aloeVera.setNivelAgua(-5);
+
+        System.out.println("Nível de água da " + aloeVera.getEspecie() + ": " + aloeVera.getNivelAgua());
 
         System.out.println("\n--- Estado final das plantas ---");
         System.out.println(echeveria.getEspecie() + " | nível de água: " + echeveria.getNivelAgua());

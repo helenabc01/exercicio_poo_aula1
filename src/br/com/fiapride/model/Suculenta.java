@@ -1,13 +1,13 @@
 package br.com.fiapride.model;
 
 public class Suculenta {
-    public String especie;
-    public int nivelAgua; // escala da necessidade de rega
-    public boolean solConstante;
+    private String especie;
+    private int nivelAgua;
+    private boolean solConstante;
 
     public Suculenta(String especie, int nivelAgua, boolean solConstante){
         this.especie = especie;
-        this.nivelAgua = nivelAgua;
+        this.setNivelAgua(nivelAgua); // usa o setter para validar
         this.solConstante = solConstante;
     }
 
@@ -15,18 +15,34 @@ public class Suculenta {
         return especie;
     }
 
+    public void setEspecie(String especie) {
+        this.especie = especie;
+    }
+
     public int getNivelAgua() {
         return nivelAgua;
+    }
+
+    public void setNivelAgua(int nivelAgua) {
+        if (nivelAgua < 0) {
+            System.out.println("Nivel de água não pode ser negativo!");
+        } else {
+            this.nivelAgua = nivelAgua;
+        }
     }
 
     public boolean isSolConstante() {
         return solConstante;
     }
 
+    public void setSolConstante(boolean solConstante) {
+        this.solConstante = solConstante;
+    }
+
     public void regar() {
         if (this.nivelAgua >= 3) {
             System.out.println(this.especie + " está sendo regada!");
-            this.nivelAgua = 1; // após regar, a planta fica hidratada
+            this.nivelAgua = 1;
         } else {
             System.out.println(this.especie + " já foi regada recentemente!");
         }
